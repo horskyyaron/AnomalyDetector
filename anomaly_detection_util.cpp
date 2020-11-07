@@ -4,7 +4,7 @@
  * Author: 204351670
  */
 
-#include <math.h>
+#include "math.h"
 #include <assert.h>
 #include "anomaly_detection_util.h"
 
@@ -85,6 +85,7 @@ float* getSamples(Point** const & points, int size, char axis) {
         default: {
             //enter correct axis.
             assert(!(axis != 'x' && axis != 'y'));
+
         }
     }
     return samples;
@@ -118,13 +119,14 @@ float dev(Point p,Point** points, int size){
     Line linearRegLine = linear_reg(points, size);
 
     //p.y = true value of the point at x, f(x) = linearRegLine.f(p.x) = the value on the regression line at x.
-    return abs(p.y - linearRegLine.f(p.x));
+    return fabs(p.y - linearRegLine.f(p.x));
 }
 
 // returns the deviation between point p and the line
 float dev(Point p,Line l){
     //p.y = true value of the point at x, f(x) = l.f(p.x) = the value on the regression line at x.
-    return abs(p.y - l.f(p.x));
+    return fabs(p.y - l.f(p.x));
+
 }
 
 

@@ -110,6 +110,7 @@ Line linear_reg(Point** points, int size){
     float slope = get_linear_reg_slope(x_samples, y_samples, size);
     float free_comp = get_linear_reg_free_component(x_samples, y_samples, size);
 
+    
     return Line(slope,free_comp);
 
 }

@@ -17,8 +17,15 @@ float pearson(float* x, float* y, int size);
 
 class Line{
 public:
-    const float a,b;
+    //y=ax+b.
+    float a,b;
+
+    //default constructor.
+    Line(): a(0),b(0) {}
+    
     Line(float a, float b):a(a),b(b){}
+
+    //calculates the value of y at the value x. y(x0) = a * x0 + b
     float f(float x){
         return a*x+b;
     }
